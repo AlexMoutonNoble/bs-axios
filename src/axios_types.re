@@ -8,13 +8,13 @@ type responseTransformer('data, 'resultData);
 
 type paramsSerializer('a) = Js.t('a) => string;
 
-type canceltoken
+type canceltoken;
 
-type token
+type token;
 
 type cancelsource = {
   token: token
-}
+};
 
 type response('data, 'header) = {
   .
