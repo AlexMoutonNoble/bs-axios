@@ -37,6 +37,12 @@ type proxy = {
   "auth": auth,
 };
 
-type onProgress('a) = Js.t('a) => unit;
+type progressevent = {
+  loaded: int,
+  total: int,
+  lengthComputable: bool,
+};
+
+type onProgress = progressevent => unit;
 
 type validateStatus = int => bool;
