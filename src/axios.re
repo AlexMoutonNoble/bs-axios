@@ -120,7 +120,7 @@ let makeRequestTransformer5 = (f0, f1, f2, f3, f5) =>
   makeRequestTransformer5((f0, f1, f2, f3, f5));
 
 [@bs.module "axios"]
-external cancelToken: (unit) => canceltoken = "CancelToken";
+external cancelToken: () => canceltoken = "CancelToken";
 
 [@bs.send] external source: (canceltoken) => cancelsource = "append";
 
