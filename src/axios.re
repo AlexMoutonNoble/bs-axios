@@ -119,6 +119,11 @@ external makeRequestTransformer5:
 let makeRequestTransformer5 = (f0, f1, f2, f3, f5) =>
   makeRequestTransformer5((f0, f1, f2, f3, f5));
 
+[@bs.module "axios"]
+external cancelToken: () => canceltoken = "CancelToken"
+
+[@bs.send] external source: (canceltoken) => cancelsource = "append";
+
 [@bs.obj]
 external makeConfig:
   (
@@ -137,6 +142,7 @@ external makeConfig:
     ~paramsSerializer: paramsSerializer('params)=?,
     ~data: Js.t('postData)=?,
     ~timeout: int=?,
+    ~cancelToken: token=?,
     ~withCredentials: bool=?,
     ~adapter: adapter('a, 'b)=?,
     ~auth: auth=?,
@@ -175,6 +181,7 @@ external makeConfigWithUrl:
     ~paramsSerializer: paramsSerializer('params)=?,
     ~data: Js.t('postData)=?,
     ~timeout: int=?,
+    ~cancelToken: token=?,
     ~withCredentials: bool=?,
     ~adapter: adapter('a, 'b)=?,
     ~auth: auth=?,
