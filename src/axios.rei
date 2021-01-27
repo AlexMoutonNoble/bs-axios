@@ -72,6 +72,14 @@ let makeRequestTransformer5:
   ) =>
   requestTransformer('data, Headers.t, 'resultData);
 
+[@bs.val] [@bs.module "axios"]
+external cancelToken: canceltoken = "CancelToken";
+
+[@bs.send] external source: (canceltoken) => cancelsource = "source";
+[@bs.get] external token: (cancelsource) => token = "token";
+[@bs.send] external cancel: (cancelsource) => unit = "cancel";
+[@bs.module "axios"] external isCancel: ('err) => bool = "isCancel";
+
 [@bs.obj]
 external makeConfig:
   (
@@ -90,6 +98,7 @@ external makeConfig:
     ~paramsSerializer: paramsSerializer('params)=?,
     ~data: Js.t('postData)=?,
     ~timeout: int=?,
+    ~cancelToken: token=?,
     ~withCredentials: bool=?,
     ~adapter: adapter('a, 'b)=?,
     ~auth: auth=?,
@@ -128,6 +137,7 @@ external makeConfigWithUrl:
     ~paramsSerializer: paramsSerializer('params)=?,
     ~data: Js.t('postData)=?,
     ~timeout: int=?,
+    ~cancelToken: token=?,
     ~withCredentials: bool=?,
     ~adapter: adapter('a, 'b)=?,
     ~auth: auth=?,
