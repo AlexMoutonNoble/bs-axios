@@ -73,7 +73,7 @@ let makeRequestTransformer5:
   requestTransformer('data, Headers.t, 'resultData);
 
 [@bs.module "axios"]
-external cancelToken: (unit) => canceltoken = "CancelToken";
+external cancelToken: () => canceltoken = "CancelToken";
 
 [@bs.send] external source: (canceltoken) => cancelsource = "append";
 
