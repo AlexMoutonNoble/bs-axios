@@ -119,16 +119,16 @@ external makeRequestTransformer5:
 let makeRequestTransformer5 = (f0, f1, f2, f3, f5) =>
   makeRequestTransformer5((f0, f1, f2, f3, f5));
 
-[@bs.val] [@bs.module "axios"]
+@val @module("axios") 
 external cancelToken: canceltoken = "CancelToken";
 
-[@bs.send] external source: (canceltoken) => cancelsource = "source";
+@send external source: (canceltoken) => cancelsource = "source";
 
-[@bs.get] external token: (cancelsource) => token = "token";
-[@bs.send] external cancel: (cancelsource) => unit = "cancel";
-[@bs.module "axios"] external isCancel: ('err) => bool = "isCancel";
+@get external token: (cancelsource) => token = "token";
+@send external cancel: (cancelsource) => unit = "cancel";
+ @module("axios") external isCancel: ('err) => bool = "isCancel";
 
-[@bs.obj]
+@obj
 external makeConfig:
   (
     ~url: string=?,
@@ -167,7 +167,7 @@ external makeConfig:
   config =
   "";
 
-[@bs.obj]
+@obj
 external makeConfigWithUrl:
   (
     ~url: string,
@@ -206,13 +206,13 @@ external makeConfigWithUrl:
   configWithUrl =
   "";
 
-[@bs.module "axios"]
+@module("axios")
 external all:
   array(Js.Promise.t(response(_, _))) =>
   Js.Promise.t(array(response(_, _))) =
   "";
 
-[@bs.module "axios"]
+ @module("axios")
 external all2:
   (
     (Js.Promise.t(response('a0, 'b0)), Js.Promise.t(response('a1, 'b1)))
@@ -220,7 +220,7 @@ external all2:
   Js.Promise.t((response('a0, 'b0), response('a1, 'b1))) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all3:
   (
     (
@@ -234,7 +234,7 @@ external all3:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all4:
   (
     (
@@ -245,7 +245,7 @@ external all4:
     )
   ) =>
   Js.Promise.t(
-    (
+  (
       response('a0, 'b0),
       response('a1, 'b1),
       response('a2, 'b2),
@@ -254,7 +254,7 @@ external all4:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all5:
   (
     (
@@ -276,7 +276,7 @@ external all5:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all6:
   (
     (
@@ -300,7 +300,7 @@ external all6:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all7:
   (
     (
@@ -326,7 +326,7 @@ external all7:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all8:
   (
     (
@@ -354,7 +354,7 @@ external all8:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all9:
   (
     (
@@ -384,7 +384,7 @@ external all9:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external all10:
   (
     (
@@ -416,54 +416,54 @@ external all10:
   ) =
   "all";
 
-[@bs.module "axios"]
+ @module("axios")
 external request: configWithUrl => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.module "axios"]
+ @module("axios")
 external get: string => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.module "axios"]
+ @module("axios")
 external getc: (string, config) => Js.Promise.t(response('a, 'b)) = "get";
 
-[@bs.module "axios"]
+ @module("axios")
 external delete: string => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.module "axios"]
+ @module("axios")
 external deletec: (string, config) => Js.Promise.t(response('a, 'b)) =
   "delete";
 
-[@bs.module "axios"]
+ @module("axios")
 external post: string => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.module "axios"]
+ @module("axios")
 external postData: (string, Js.t('a)) => Js.Promise.t(response('b, 'c)) =
   "post";
 
-[@bs.module "axios"]
+ @module("axios")
 external postDatac:
   (string, Js.t('a), config) => Js.Promise.t(response('b, 'c)) =
   "post";
 
-[@bs.module "axios"]
+ @module("axios")
 external put: string => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.module "axios"]
+ @module("axios")
 external putData: (string, Js.t('a)) => Js.Promise.t(response('b, 'c)) =
   "put";
 
-[@bs.module "axios"]
+@module("axios")
 external putDatac:
   (string, Js.t('a), config) => Js.Promise.t(response('b, 'c)) =
   "put";
 
-[@bs.module "axios"]
+ @module("axios")
 external patch: string => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.module "axios"]
+ @module("axios")
 external patchData: (string, Js.t('a)) => Js.Promise.t(response('b, 'c)) =
   "patch";
 
-[@bs.module "axios"]
+ @module("axios")
 external patchDatac:
   (string, Js.t('a), config) => Js.Promise.t(response('b, 'c)) =
   "patch";

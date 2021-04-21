@@ -2,74 +2,74 @@
 module Http = {
   type t;
 
-  [@bs.deriving abstract]
+  @deriving abstract
   type config = {
-    [@bs.optional]
+   @optional 
     keepAlive: bool,
-    [@bs.optional]
+   @optional 
     keepAliveMsecs: int,
-    [@bs.optional]
+   @optional 
     maxSockets: int,
-    [@bs.optional]
+   @optional 
     maxFreeSockets: int,
-    [@bs.optional]
+   @optional 
     timeout: int,
   };
 
-  [@bs.module "http"] [@bs.new] external create: config => t = "Agent";
+  @module("http") @new external create: config => t = "Agent";
 };
 
 // https://nodejs.org/api/https.html#https_class_https_agent
 module Https = {
   type t;
 
-  [@bs.deriving abstract]
+  @deriving abstract
   type config = {
-    [@bs.optional]
+   @optional 
     ca: string,
-    [@bs.optional]
+   @optional 
     cert: string,
-    [@bs.optional]
+   @optional 
     ciphers: string,
-    [@bs.optional]
+   @optional 
     clientCertEngine: string,
-    [@bs.optional]
+   @optional 
     crl: string,
-    [@bs.optional]
+   @optional 
     dhparam: string,
-    [@bs.optional]
+   @optional 
     ecdhCurve: string,
-    [@bs.optional]
+   @optional 
     honorCipherOrder: bool,
-    [@bs.optional]
+   @optional 
     key: string,
-    [@bs.optional]
+   @optional 
     keepAlive: bool,
-    [@bs.optional]
+   @optional 
     keepAliveMsecs: int,
-    [@bs.optional]
+   @optional 
     maxSockets: int,
-    [@bs.optional]
+   @optional 
     maxFreeSockets: int,
-    [@bs.optional]
+   @optional 
     maxCachedSessions: int,
-    [@bs.optional]
+   @optional 
     passphrase: string,
-    [@bs.optional]
+   @optional 
     pfx: string,
-    [@bs.optional]
+   @optional 
     rejectUnauthorized: bool,
-    [@bs.optional]
+   @optional 
     secureOptions: int,
-    [@bs.optional]
+   @optional 
     secureProtocol: string,
-    [@bs.optional]
+   @optional 
     servername: string,
-    [@bs.optional]
+   @optional 
     sessionIdContext: string,
-    [@bs.optional]
+   @optional 
     timeout: int,
   };
 
-  [@bs.module "https"] [@bs.new] external create: config => t = "Agent";
+  @module("https") @new external create: config => t = "Agent";
 };

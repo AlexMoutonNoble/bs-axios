@@ -1,15 +1,15 @@
 /* Simple request */
 Js.Promise.(
   Axios.get("/user?ID=12345")
-  |> then_(response => resolve(Js.log(response##data)))
-  |> catch(error => resolve(Js.log(error)))
+  -> then_(response => resolve(Js.log(response["data"])))
+  -> catch(error => resolve(Js.log(error)))
 );
 
 /* Post requests */
 Js.Promise.(
   Axios.post("/user")
-  |> then_(response => resolve(Js.log(response##data)))
-  |> catch(error => resolve(Js.log(error)))
+  -> then_(response => resolve(Js.log(response["data"])))
+  -> catch(error => resolve(Js.log(error)))
 );
 
 let user = {"username": "michel", "password": "12345678"};
@@ -21,17 +21,17 @@ Js.Promise.(
       user;
     },
   )
-  |> then_(response => resolve(Js.log(response##data)))
-  |> catch(error => resolve(Js.log(error)))
+  -> then_(response => resolve(Js.log(response["data"])))
+  -> catch(error => resolve(Js.log(error)))
 );
 
 /* Concurrency */
 Js.Promise.(
   Axios.all2((Axios.get("/users/1"), Axios.get("/users/1/friends")))
-  |> then_(((user, friends)) =>
-       resolve(Js.log2(user##data, friends##data))
+  -> then_(((user, friends)) =>
+       resolve(Js.log2(user["data"], friends["data"]))
      )
-  |> catch(error => resolve(Js.log(error)))
+  -> catch(error => resolve(Js.log(error)))
 );
 
 /* Headers */
@@ -51,7 +51,7 @@ Axios.getc("https://example.com", Axios.makeConfig(~headers, ()));
 
 /* Node.js Agent */
 let httpsAgent =
-  Axios.Agent.Https.(config(~rejectUnauthorized=false, ()) |> create);
+  Axios.Agent.Https.(config(~rejectUnauthorized=false, ()) -> create);
 
 Axios.getc(
   "https://insecure-example.com",

@@ -2,15 +2,15 @@ open Axios_types;
 
 type t;
 
-[@bs.module "axios"] external create: config => t = "";
+@module("axios") external create: config => t = "";
 
-[@bs.send]
+@send
 external all:
   (t, array(Js.Promise.t(response(_, _)))) =>
   Js.Promise.t(array(response(_, _))) =
   "";
 
-[@bs.send]
+@send
 external all2:
   (
     t,
@@ -19,7 +19,7 @@ external all2:
   Js.Promise.t((response('a0, 'b0), response('a1, 'b1))) =
   "all";
 
-[@bs.send]
+@send
 external all3:
   (
     (
@@ -34,7 +34,7 @@ external all3:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all4:
   (
     (
@@ -55,7 +55,7 @@ external all4:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all5:
   (
     (
@@ -78,7 +78,7 @@ external all5:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all6:
   (
     (
@@ -103,7 +103,7 @@ external all6:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all7:
   (
     (
@@ -130,7 +130,7 @@ external all7:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all8:
   (
     (
@@ -159,7 +159,7 @@ external all8:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all9:
   (
     (
@@ -190,7 +190,7 @@ external all9:
   ) =
   "all";
 
-[@bs.send]
+@send
 external all10:
   (
     (
@@ -223,50 +223,50 @@ external all10:
   ) =
   "all";
 
-[@bs.send] external request: t => Js.Promise.t(response('a, 'b)) = "";
+@send external request: t => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.send] external get: (t, string) => Js.Promise.t(response('a, 'b)) = "";
+@send external get: (t, string) => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.send]
+@send
 external getc: (t, string, config) => Js.Promise.t(response('a, 'b)) = "get";
 
-[@bs.send]
+@send
 external delete: (t, string) => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.send]
+@send
 external deletec: (t, string, config) => Js.Promise.t(response('a, 'b)) =
   "delete";
 
-[@bs.send] external post: (t, string) => Js.Promise.t(response('a, 'b)) = "";
+@send external post: (t, string) => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.send]
+@send
 external postData: (t, string, Js.t('a)) => Js.Promise.t(response('b, 'c)) =
   "post";
 
-[@bs.send]
+@send
 external postDatac:
   (t, string, Js.t('a), config) => Js.Promise.t(response('b, 'c)) =
   "post";
 
-[@bs.send] external put: (t, string) => Js.Promise.t(response('a, 'b)) = "";
+@send external put: (t, string) => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.send]
+@send
 external putData: (t, string, Js.t('a)) => Js.Promise.t(response('b, 'c)) =
   "put";
 
-[@bs.send]
+@send
 external putDatac:
   (t, string, Js.t('a), config) => Js.Promise.t(response('b, 'c)) =
   "put";
 
-[@bs.send]
+@send
 external patch: (t, string) => Js.Promise.t(response('a, 'b)) = "";
 
-[@bs.send]
+@send
 external patchData: (t, string, Js.t('a)) => Js.Promise.t(response('b, 'c)) =
   "patch";
 
-[@bs.send]
+@send
 external patchDatac:
   (t, string, Js.t('a), config) => Js.Promise.t(response('b, 'c)) =
   "patch";
